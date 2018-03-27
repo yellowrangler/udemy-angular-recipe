@@ -8,18 +8,18 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 @Injectable()
 export class RecipeService {
 	public recipeSeleted = new EventEmitter<Recipe>();
-	
+
 	private recipes: Recipe[] = [
-		new Recipe('Tasty Schnitzel', 
-			'A super-tasty Schnitzel - Just awsome', 
+		new Recipe('Tasty Schnitzel',
+			'A super-tasty Schnitzel - Just awsome',
 			'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG',
 			[
 				new Ingredient('Meat', 1),
 				new Ingredient('French Fries', 15)
 			]),
 
-		new Recipe('Big Fat Burger', 
-			'What else do you need to say?', 
+		new Recipe('Big Fat Burger',
+			'What else do you need to say?',
 			'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
 			[
 				new Ingredient('Buns', 2),
@@ -33,6 +33,10 @@ export class RecipeService {
 
 	getRecipes() {
 		return this.recipes.slice();
+	}
+
+	getRecipe(idx: number) {
+		return this.recipes[idx];
 	}
 
 	addIngredientsToShoppingList(ingredients: Ingredient[]) {
